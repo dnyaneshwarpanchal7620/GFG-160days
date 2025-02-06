@@ -9,7 +9,7 @@ class Solution {
       
         for(int i=0;i<n-d;i++){  // copy the ele n to d last 2 p0sition are empty
              temp[i]=arr[d+i];
-        }  //
+        }  
         for(int i=0;i<d;i++){   // Copy elements from the start to d-1:
           temp[n-d+i]=arr[i];
         }  
