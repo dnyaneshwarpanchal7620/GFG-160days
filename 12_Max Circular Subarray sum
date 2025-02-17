@@ -1,0 +1,40 @@
+class Solution {
+
+    // a: input array
+    // n: size of array
+    // Function to find maximum circular subarray sum.
+    public int circularSubarraySum(int arr[]) {
+
+        // Your code here
+        int maxsum =arr[0];
+        int minsum =arr[0];
+        int CurrMaxsum =0;
+        int CurrMinsum =0;
+        int n=arr.length;
+        int totalSum = 0;
+        
+        for(int i=0;i<n;i++){
+            
+            // kadane algo to find max sum
+            CurrMaxsum = Math.max(CurrMaxsum+arr[i],arr[i]);
+            maxsum = Math.max(maxsum,CurrMaxsum);
+            
+            // for min sum
+            CurrMinsum = Math.min(CurrMinsum +arr[i],arr[i]);
+            minsum=Math.min(minsum,CurrMinsum);
+            
+            // total sum of array...
+            totalSum += arr[i];
+        }
+         
+         int normalSum = maxsum;
+         int circularSum = totalSum-minsum;
+         
+         if(minsum==totalSum){
+             return normalSum;
+         }
+         
+         return Math.max(normalSum,circularSum);
+        
+    }
+}
